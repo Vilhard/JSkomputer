@@ -18,11 +18,11 @@
             <p id="balance--amount" class="amount">0</p>
           </div>
           <div class="labels">
-          <label for="loan" class="balance">Loan</label>
+            <label for="loan" class="balance">Loan</label>
             <p id="loan--amount" class="amount">0</p>
-        </div>
+          </div>
           <div class="buttons">
-            <button id="loan--button" class="btn">Get a loan</button>
+            <button id="loan--button" class="btn-grad">Get a loan</button>
           </div>
         </div>
         <div class="box">
@@ -32,26 +32,30 @@
             <p id="pay--amount" value="pay" class="amount">0</p>
           </div>
           <div id="buttons" class="buttons">
-            <button id="bank--button" class="btn">Bank</button>
-            <button id="work--button" class="btn">Work</button>
-            <button id="repay--button" class="btn hidden">Repay loan</button>
+            <button id="bank--button" class="btn-grad">Bank</button>
+            <button id="work--button" class="btn-grad">Work</button>
+            <button id="repay--button" class="btn-grad hidden">
+              Repay loan
+            </button>
           </div>
         </div>
         <div class="box">
           <h1 class="box--header">Laptops</h1>
           <select id="computers" name="Laptops" class="dropdown"></select>
-          <li id="features"></li>
+          <div>
+            <label class="text">Features:</label>
+            <div id="features"></div>
+          </div>
         </div>
         <div id="info" class="longbox">
-          <div class="column" id="info--image">
-          </div>
+          <div class="column" id="info--image"></div>
           <div class="column" id="info--text">
             <label class="title" id="info--title"></label>
             <p id="info--desc"></p>
           </div>
           <div class="column" id="info--value">
             <div class="text" id="info--price"></div>
-            <button id="info--buy" class="btn">BUY NOW</button>
+            <button id="info--buy" class="btn-grad">BUY NOW</button>
           </div>
         </div>
       </div>
