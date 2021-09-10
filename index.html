@@ -14,27 +14,36 @@
         <div class="box">
           <h1 class="box--header">Banker</h1>
           <div class="labels">
-            <label for="balance" class="balance">Balance</label>
-            <p id="balance--amount" class="amount">0</p>
+            <div class="toline">
+            <label for="balance" class="balance left">Balance</label>
+              <p class="right">€</p>
+              <p id="balance--amount" class="right">0</p>
+            </div>
           </div>
           <div class="labels">
-            <label for="loan" class="balance">Loan</label>
-            <p id="loan--amount" class="amount">0</p>
+            <div class="toline">
+            <label for="loan" class="balance left">Loan</label>
+            <p class="right">€</p>
+            <p id="loan--amount" class="right">0</p>
+            </div>
           </div>
           <div class="buttons">
-            <button id="loan--button" class="btn-grad">Get a loan</button>
+            <button id="loan--button" class="btn-grad btn-loan">Get a loan</button>
           </div>
         </div>
         <div class="box">
           <h1 class="box--header">Work</h1>
           <div class="labels">
-            <label for="balance" class="balance">Pay</label>
-            <p id="pay--amount" value="pay" class="amount">0</p>
+            <div class="toline">
+            <label for="balance" class="balance left">Pay</label>
+            <p class="right">€</p>
+            <p id="pay--amount" class="right">0</p>
+          </div>
           </div>
           <div id="buttons" class="buttons">
-            <button id="bank--button" class="btn-grad">Bank</button>
-            <button id="work--button" class="btn-grad">Work</button>
-            <button id="repay--button" class="btn-grad hidden">
+            <button id="bank--button" class="btn-grad btn-bank">Bank</button>
+            <button id="work--button" class="btn-grad btn-work">Work</button>
+            <button id="repay--button" class="btn-grad btn-repay hidden">
               Repay loan
             </button>
           </div>
@@ -55,11 +64,11 @@
           </div>
           <div class="column" id="info--value">
             <div class="text" id="info--price"></div>
-            <button id="info--buy" class="btn-grad">BUY NOW</button>
+            <button id="info--buy" class="btn-grad btn-buy">BUY NOW</button>
           </div>
         </div>
       </div>
     </main>
   </body>
-  <script src="index.js"></script>
+  <script type="module" src="index.js"></script>
 </html>
