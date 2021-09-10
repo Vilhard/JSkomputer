@@ -133,15 +133,14 @@ const payLoan = () => {
 };
 
 // Checks if there is enough money in the bank to buy a computer and then handles the exhange
-const buyComputer = e => {
+const buyComputer = () => {
   if (total >= +infoPriceElement.innerText.slice(0, -1)) {
     total = subtract(total, +infoPriceElement.innerText.slice(0, -1))
     updateBalanceElement(total)
     loanAllowed = true
-    alert(`You are the owner of this laptop`)
+    alert(`You are the owner of ${infoTitleElement.innerText} laptop`)
   } else {
-    console.log(e)
-    alert("You don't have enough money in the bank to buy this laptop")
+    alert(`You don't have enough money in the bank to buy ${infoTitleElement.innerText} laptop`)
   }
 }
 
