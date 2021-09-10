@@ -1,8 +1,8 @@
 "use strict";
 //imports
 import { add, subtract, multiply, isNormalInteger } from './helpers/calculationHelpers.js';
-import { updateBalanceElement, updatePayElement,
-   updateLoanElement, showLoanButtonElement, hideLoanButtonElement} from './helpers/elementHandlers.js';
+import { updateBalanceElement, updatePayElement, updateLoanElement } from './handlers/valueHandlers.js';
+import shouldShowLoanElementButton from './handlers/loanButtonDisplayHandler.js';
 
 // DOM Elements
 const computersElement = document.getElementById("computers");
@@ -94,7 +94,7 @@ const getLoan = () => {
       loan = value
       loanAllowed = false
       updateLoanElement(loan);
-      showLoanButtonElement();
+      shouldShowLoanElementButton(true)
       total = add(total,+loan)
       updateBalanceElement(total)
   }
@@ -124,7 +124,7 @@ const payLoan = () => {
     updateLoanElement(0);
     updatePayElement(0);
     updateBalanceElement(total)
-    hideLoanButtonElement()
+    shouldShowLoanElementButton(false)
   }
   loan = subtract(loan, pay);
   updateLoanElement(loan);
@@ -144,7 +144,7 @@ const buyComputer = () => {
   }
 }
 
-// listeners
+// Listeners
 computersElement.addEventListener("change", handleComputerMenuChange);
 workButtonElement.addEventListener("click", addWork);
 bankButtonElement.addEventListener("click", addToBank);
