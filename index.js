@@ -22,9 +22,14 @@ let computers = [];
 let pay = 0;
 let total = 0;
 let loan = 0;
-let interest = 0;
 let value;
 let loanAllowed = true
+
+const interestProcent = (10 / 100)
+const subtract = (a, b) => a - b
+const add = (a, b) => a + b
+const multiply = (a, b) => a * b
+
 
 fetch(`${url}computers`)
   .then((response) => response.json())
@@ -126,10 +131,10 @@ const addWork = () =>
 // Checks if there is loan -> add interest to loan, if not add pay to bank
 const addToBank = () => {
   if (+loan > 0) {
-    loan = +loan + +(10 / 100) * pay;
+    loan = add(+loan, multiply(interestProcent, pay))
     updateLoanElement(loan);
   }
-  total += pay;
+  total = add(total, pay);
   pay = 0;
   updatePayElement(0);
   updateBalanceElement(total)
@@ -138,7 +143,7 @@ const addToBank = () => {
 //TODO: Button wont close when loan 0
 const payLoan = () => {
   if (pay > loan) {
-    total = +total + pay - loan
+    total = add(total, subtract(pay, loan))
     loan = 0;
     updateLoanElement(0);
     pay = 0
@@ -146,15 +151,16 @@ const payLoan = () => {
     updateBalanceElement(total)
     hideLoanButtonElement()
   }
-  loan = loan - pay;
+  loan = subtract(loan, pay);
   updateLoanElement(loan);
   pay = 0;
   updatePayElement(0);
 };
+
 // Checks if there is enough money in the bank to buy a computer and then handles the exhange
 const buyComputer = () => {
   if (total >= +infoPriceElement.innerText) {
-    total = total - +infoPriceElement.innerText
+    total = subtract(total, infoPriceElement.innerText)
     updateBalanceElement(total)
     loanAllowed = true
     alert(`You are the owner of this laptop`)
